@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text, TouchableOpacity, StatusBar, Platform, FlatList } from "react-native";
+import { FeedItem } from "../../components/FeedItem/feedItem";
 
 const styles = StyleSheet.create({
     container:{
@@ -62,6 +63,10 @@ export function Home(){
                     <View style={styles.indicator}></View>
                 </TouchableOpacity>
             </View>
+            <FlatList
+            data={feedItems}
+            renderItem={({ item }) => <FeedItem data={item}/>}
+            />
         </View>
     )
 }
