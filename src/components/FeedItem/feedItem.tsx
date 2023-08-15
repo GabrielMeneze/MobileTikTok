@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text, Pressable, Dimensions, Touchable, TouchableOpacity, Platform } from "react-native";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Video } from 'expo-av'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -30,25 +30,43 @@ const styles = StyleSheet.create({
         zIndex: 99,
         right: 10,
         bottom: Platform.OS === 'android' ? 120 : 170,
-        gap: 8 
+        gap: 8
     },
-    actionText:{
+    actionText: {
         textAlign: 'center',
         color: '#fff',
         textShadowOffset: { width: -1, height: 1.5 },
         textShadowRadius: 8
     }
 })
+
 const { height: heightScreen } = Dimensions.get("screen")
 
-export function FeedItem({ data }) {
+export function FeedItem({ data, currentVisibleItem }) {
     const video = useRef(null)
     const [status, setStatus] = useState({})
 
     function handlePlayer() {
-        // @ts-ignore
-        status.isPlaying ? video.current?.pauseAsync() : video.current?.playAsync()
+        try {
+            // @ts-ignore
+            status.isPlaying ? video.current?.pauseAsync() : video.current?.playAsync()
+        } catch (error) {
+            console.log(error)
+        }
     }
+
+    useEffect(() => {
+        try {
+            if (currentVisibleItem?.id === data?.id) {
+                video.current?.playAsync()
+            } else {
+                video.current?.pauseAsync()
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }, [currentVisibleItem])
+
     return (
         <Pressable onPress={handlePlayer}>
             <View
