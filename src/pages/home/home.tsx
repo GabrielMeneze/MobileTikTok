@@ -36,21 +36,21 @@ export function Home() {
     let feedItems = [
         {
             id: '1',
-            video: 'https://i.imgur.com/Cnz1CPK.mp4',
-            name: '@sujeitoprogramador',
-            description: 'Criando o ShortDev do zero com RN',
+            video: 'https://i.imgur.com/p9hDJbs.mp4',
+            name: '@spacenow',
+            description: 'Little breakfast',
         },
         {
             id: '2',
-            video: 'https://i.imgur.com/E0tK2bY.mp4',
-            name: '@henriquesilva',
-            description: 'Fala turma, estou aprendendo React Native com sujeito programador',
+            video: 'https://i.imgur.com/qfP3RmT.mp4',
+            name: '@OnGoGoOn',
+            description: 'Dont crabs run sideways? Even on their birthdays',
         },
         {
             id: '3',
-            video: 'https://i.imgur.com/mPFvFyX.mp4',
-            name: '@sujeitoprogramador',
-            description: 'Aprendendo a trabalhar com Drag and Drop no React Native',
+            video: 'https://i.imgur.com/AOEb6g0.mp4',
+            name: '@WeirdAlisMySpiritUserName',
+            description: 'Super fresh Gorgonzola, for those who don’t want to unmute',
         }
     ]
 
